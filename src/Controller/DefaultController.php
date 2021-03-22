@@ -14,7 +14,24 @@ class DefaultController extends AbstractController
      */
     public function index(): Response
     {
-        $param = $this->getParameter('kernel.project_dir');
+        $root_dir = $this->getParameter('kernel.project_dir');
+        $target_dir = $root_dir . '/src/Entity';
+
+        $iterator = new \DirectoryIterator($target_dir);
+
+        $files = [];
+        while($iterator->valid()){
+            if(
+                $iterator->getBasename() !== '.'
+                && $iterator->getBasename() !== '..'
+                && $iterator->getBasename() !== '.gitignore')
+                $files[] = $iterator->getBasename();
+
+            $iterator->next();
+
+        }
+
+        dd($files);
 
         $user = new User();
 
@@ -29,7 +46,7 @@ class DefaultController extends AbstractController
 
         return $this->render('default/index.html.twig', [
             'object' => $object,
-            'param' => $param,
+
         ]);
     }
 }
