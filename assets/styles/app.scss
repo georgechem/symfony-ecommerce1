@@ -31,3 +31,11 @@ body {
     }
 
 }
+.SubNav{
+    display: flex;
+    &__list{
+        background-color: #222222;
+        color:#ddd;
+        width: 50%;
+    }
+}
