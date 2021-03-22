@@ -23,9 +23,7 @@ class FilesystemService
         while($iterator->valid()){
             $name = $iterator->getBasename();
 
-            if($name !== '.'
-                && $name !== '..'
-                && $name !== '.gitignore')
+            if($name[0] !== '.')
             {
                 $files[] = $name;
             }
