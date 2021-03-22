@@ -66,6 +66,7 @@
         }
     },
     "require-dev": {
+        "symfony/maker-bundle": "^1.30",
         "symfony/webpack-encore-bundle": "^1.11"
     }
 }
