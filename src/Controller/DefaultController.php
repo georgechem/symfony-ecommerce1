@@ -10,17 +10,21 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
 {
+
+    public function __construct(FilesystemService $filesystemService){
+
+        $this->files = $filesystemService
+            ->getFilesFromDirectory('/src/Entity');
+
+    }
     /**
      * @Route("/", name="app_homepage")
      */
-    public function index(FilesystemService $filesystemService): Response
+    public function index(): Response
     {
-        $files = $filesystemService
-            ->getFilesFromDirectory('/src/Entity');
-
 
         return $this->render('default/index.html.twig', [
-           'files'=>$files
+           'files'=>$this->files
 
         ]);
     }
