@@ -15,7 +15,7 @@ class FilesystemService
         $this->rootDir = $container->getParameter('kernel.project_dir');
     }
 
-    public function getFilesFromDirectory($dir)
+    public function getFilesFromDirectory($dir, $extension = false)
     {
         $iterator = new \DirectoryIterator($this->rootDir . $dir);
 
@@ -23,11 +23,26 @@ class FilesystemService
         while($iterator->valid()){
             $name = $iterator->getBasename();
 
-            if($name !== '.' && $name !== '..' && $name !== '.gitignore'){
+            if($name !== '.'
+                && $name !== '..'
+                && $name !== '.gitignore')
+            {
                 $files[] = $name;
             }
             $iterator->next();
         }
+        if(!$extension){
+            $base = [];
+            foreach($files as $file){
+                $base[] = explode('.',$file);
+            }
+            $files = [];
+            foreach($base as $key=>$item){
+                $files[] = $item[0];
+            }
+
+        }
+
 
         return $files;
     }

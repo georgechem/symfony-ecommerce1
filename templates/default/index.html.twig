@@ -8,7 +8,10 @@
 {% endblock %}
 
 {% block body %}
-    {{ object }}
+    {% for file in files %}
+        {{ file }}
+    {% endfor %}
+
 
 {% endblock %}
 
