@@ -15,12 +15,12 @@ class TokenAuthenticator extends AbstractGuardAuthenticator
 {
     public function supports(Request $request)
     {
-        return $request->headers->has('X-AUTH-TOKEN');
+        return $request->cookies->has('X-AUTH-TOKEN');
     }
 
     public function getCredentials(Request $request)
     {
-        return $request->headers->get('X-AUTH-TOKEN');
+        return $request->cookies->get('X-AUTH-TOKEN');
     }
 
     public function getUser($credentials, UserProviderInterface $userProvider)
