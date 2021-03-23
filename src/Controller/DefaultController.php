@@ -23,8 +23,31 @@ class DefaultController extends AbstractController
     public function index(): Response
     {
 
+        $path = '';
+        $products = [
+            [
+                'id'=>1,
+                'name'=>'camera',
+                'price'=>rand(100, 10000)/100,
+                'inStock'=> 3,
+                'rating'=>rand(5,50)/10,
+                'numRating'=>rand(10, 200),
+                'category'=>'electronics',
+                'colors'=>[
+                    '#0a0',
+                    '#f00',
+                    '#af0',
+                    '#00f',
+                    '#fff'
+                ],
+                'deliveryIn'=>rand(1, 7),
+                'img'=>"{$path}/images/cam0a1.jpg",
+                'description'=>'Praesent sodales vulputate sem, eu porttitor odio aliquet eu. Integer ut sapien a enim commodo tempus et a mauris. Fusce metus erat, faucibus et lobortis a, molestie vitae erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque sit amet viverra purus. Nam vitae urna vel libero euismod auctor. Cras sit amet lacus tortor. Suspendisse potenti. Suspendisse potenti. Integer tincidunt accumsan mollis.',
+
+            ]];
+
         return $this->render('default/index.html.twig', [
-           'files'=>$this->files
+           'products'=>$products
 
         ]);
     }
