@@ -26,7 +26,6 @@ export const removeClass = (id, className) => {
 const handleActiveItem = () => {
     const home = document.getElementById('home');
     const user = document.getElementById('user');
-    const userNav = document.getElementById('userNav');
 
     home.addEventListener('click', function(){
         toggleClass('home','active');
@@ -49,6 +48,7 @@ const handleActiveItem = () => {
             addClass('userNav', 'hide');
         }
     });
+
 
 }
 handleActiveItem();
