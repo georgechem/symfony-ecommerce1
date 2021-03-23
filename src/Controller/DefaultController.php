@@ -20,7 +20,7 @@ class DefaultController extends AbstractController
     }
     /**
      * @Route("/", name="app_homepage")
-     *
+     * @IsGranted("ROLE_USER")
      */
     public function index(): Response
     {
