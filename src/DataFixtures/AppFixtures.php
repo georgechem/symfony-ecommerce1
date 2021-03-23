@@ -42,7 +42,7 @@ class AppFixtures extends Fixture
 
         $prefix = "/ecommerce/public";
         $product = new Product();
-        $
+
 
 
         $manager->flush();
