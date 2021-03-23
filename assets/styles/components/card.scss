@@ -1,1 +1,19 @@
+.Card {
+  margin: 20px 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  &__item{
+    margin:5px;
+    background-color: #dddddd;
+    width: 280px;
+  }
+  &__content{
+    margin: 10px;
+    &--img{
+      width: 100%;
+    }
 
+  }
+
+}

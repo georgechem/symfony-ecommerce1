@@ -1,7 +1,11 @@
 <div class="Card">
 {% for product in products %}
 
-
+<div class="Card__item">
+    <div class="Card__content">
+        <img class="Card__content--img" src="{{ product.img }}" alt="product image">
+    </div>
+</div>
 
 {% endfor %}
 </div>
