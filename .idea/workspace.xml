@@ -2,10 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19e0d8cf-ae14-49e1-8a18-7f66807187bd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/images/cam0a1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/camera01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/camera02a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/cpu01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/cpu02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/flashlight01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/headphones01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ipad01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/jackplug01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/keyboard01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/memory01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/memory02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/mic01b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/mouse01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/mouse02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/mp3player01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/multimeter01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/notebook01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/recordplayer01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/retrotv01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/speaker01.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/nav.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,9 +129,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\symfony\22Mar-app1\public" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
