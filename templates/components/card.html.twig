@@ -4,6 +4,27 @@
 <div class="Card__item">
     <div class="Card__content">
         <img class="Card__content--img" src="{{ product.img }}" alt="product image">
+        <p class="Card__content name">{{ product.name }}</p>
+        <p class="Card__content price">{{ product.price }} EUR</p>
+        <p class="Card__content">{{ product.inStock }}</p>
+        <p class="Card__content">{{ product.rating }}</p>
+        <p class="Card__content">{{ product.numRating }}</p>
+        <p class="Card__content">{{ product.category }}</p>
+
+        <span class="Card__content">
+            Colors:
+            {% for color in product.colors %}
+            <span
+                  style="background-color: {{ color }};
+                          border: 1px solid #222;
+                          margin: 5px;">
+                &nbsp;&nbsp;&nbsp;
+            </span>
+            {% endfor %}
+        </span>
+
+        <p class="Card__content">{{ product.deliveryIn }}</p>
+        {#  <p class="Card__content">{{ product.description }}</p>#}
     </div>
 </div>
 
