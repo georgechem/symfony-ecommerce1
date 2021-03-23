@@ -12,6 +12,17 @@
   &__content{
     margin: 10px;
     text-align: center;
+    &__footer{
+      display: flex;
+      justify-content: space-between;
+      &--btn{
+        background-color: #68b199;
+        cursor: pointer;
+        padding: 5px;
+        outline: none;
+        border: 1px solid #666;
+      }
+    }
     &--out{
       color: red;
     }

@@ -84,8 +84,11 @@
             <span class="Card__content--delivery">in&nbsp;{{ product.deliveryIn }}&nbsp;day(s)</span>
         </p>
         {#  <p class="Card__content">{{ product.description }}</p>#}
+        <div class="Card__content__footer">
+            <input class="Card__content__footer--btn" type="submit" value="Add to Cart">
+            <input class="Card__content__footer--btn" type="submit" value="Details">
+        </div>
     </div>
 </div>
-
 {% endfor %}
 </div>
