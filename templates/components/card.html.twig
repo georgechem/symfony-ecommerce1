@@ -1,3 +1,5 @@
+
+
 <div class="Card">
 {% for product in products %}
 
@@ -6,10 +8,64 @@
         <img class="Card__content--img" src="{{ product.img }}" alt="product image">
         <p class="Card__content name">{{ product.name }}</p>
         <p class="Card__content price">{{ product.price }} EUR</p>
-        <p class="Card__content">{{ product.inStock }}</p>
-        <p class="Card__content">{{ product.rating }}</p>
-        <p class="Card__content">{{ product.numRating }}</p>
-        <p class="Card__content">{{ product.category }}</p>
+        <p class="Card__content">
+            {{ product.inStock == 0  ? "<span class=\"Card__content--out\">Out of stock<span>"}}
+            {{ product.inStock >= 1 and product.inStock <=4 ? "<span class=\"Card__content--ending\">Ending<span>"}}
+            {{ product.inStock > 4 ? "<span class=\"Card__content--stock\" >In stock<span>" }}
+        </p>
+        <p class="Card__content">
+            <span class="Card__content--stars">
+            {% set e = 5 %}
+        {% if product.rating < 1 and product.rating >= 0.5 %}
+            {% set e = 4 %}
+            <i class="fas fa-star-half-alt"></i>
+            {% elseif product.rating >= 1 %}
+                {% set e = 4 %}
+                <i class="fas fa-star"></i>
+        {% endif %}
+
+            {% if product.rating < 2 and product.rating >= 1.5 %}
+                {% set e = 3 %}
+                <i class="fas fa-star-half-alt"></i>
+            {% elseif product.rating >= 2 %}
+                {% set e = 3 %}
+                <i class="fas fa-star"></i>
+            {% endif %}
+
+            {% if product.rating < 3 and product.rating >= 2.5 %}
+                {% set e = 2 %}
+                <i class="fas fa-star-half-alt"></i>
+            {% elseif product.rating >= 3 %}
+                {% set e = 2 %}
+                <i class="fas fa-star"></i>
+            {% endif %}
+
+            {% if product.rating < 4 and product.rating >= 3.5 %}
+                {% set e = 1 %}
+                <i class="fas fa-star-half-alt"></i>
+            {% elseif product.rating >= 4 %}
+                {% set e = 1 %}
+                <i class="fas fa-star"></i>
+            {% endif %}
+
+            {% if product.rating < 5 and product.rating >= 4.5 %}
+                {% set e = 0 %}
+                <i class="fas fa-star-half-alt"></i>
+            {% elseif product.rating >= 5 %}
+                {% set e = 0 %}
+                <i class="fas fa-star"></i>
+            {% endif %}
+
+            {# Empty stars #}
+            {% if e != 0 %}
+            {% for i in range(1,e) %}
+                <i class="far fa-star"></i>
+            {% endfor %}
+            {% endif %}
+        </span>
+        </p>
+        <p class="Card__content">from {{ product.numRating }} reviews</p>
+        <p class="Card__content">Category: {{ product.category }}</p>
 
         <span class="Card__content">
             Colors:
@@ -23,7 +79,10 @@
             {% endfor %}
         </span>
 
-        <p class="Card__content">{{ product.deliveryIn }}</p>
+        <p class="Card__content">
+            <span class="Card__content--ship"><i class="fas fa-shipping-fast"></i></span>
+            <span class="Card__content--delivery">in&nbsp;{{ product.deliveryIn }}&nbsp;day(s)</span>
+        </p>
         {#  <p class="Card__content">{{ product.description }}</p>#}
     </div>
 </div>

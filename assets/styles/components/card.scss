@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   &__item{
+    border: 1px solid #444;
     margin:5px;
     background-color: #dddddd;
     width: 280px;
@@ -11,6 +12,21 @@
   &__content{
     margin: 10px;
     text-align: center;
+    &--out{
+      color: red;
+    }
+    &--ending{
+      color:saddlebrown;
+    }
+    &--stock{
+      color:green;
+    }
+    &--stars{
+      color: orangered;
+    }
+    &--ship{
+      color: blue;
+    }
     &--img{
       width: 100%;
     }
