@@ -2,28 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19e0d8cf-ae14-49e1-8a18-7f66807187bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/cam0a1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/camera01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/camera02a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/cpu01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/cpu02.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/flashlight01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/headphones01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ipad01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/jackplug01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/keyboard01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/memory01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/memory02.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/mic01b.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/mouse01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/mouse02.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/mp3player01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/multimeter01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/notebook01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/recordplayer01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/retrotv01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/speaker01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/styles/components/card.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/components/card.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/homepage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,7 +285,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616491323133</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Product Controller with fake products">
+      <created>1616494662004</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1616494662004</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,7 +312,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="ok" />
+    <MESSAGE value="Product Controller with fake products" />
+    <option name="LAST_COMMIT_MESSAGE" value="Product Controller with fake products" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
