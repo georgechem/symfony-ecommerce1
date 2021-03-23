@@ -9,11 +9,12 @@ body {
     font-family: sans-serif;
 }
 .Nav {
-    padding: 5px;
+    //padding: 5px;
     background-color: #222;
     color: #ddd;
     display: flex;
     justify-content: space-around;
+    border-bottom: 1px solid black;
     &__page{
         text-transform: capitalize;
     }
@@ -23,7 +24,12 @@ body {
     &__list{
         list-style: none;
         &__item{
+            margin-top: 0px;
+            padding: 5px;
+            border-bottom: 5px solid #222;
             &--link{
+                cursor: pointer;
+                font-size: 1.5rem;
                 text-decoration: none;
                 color: #ddd;
             }
@@ -31,11 +37,10 @@ body {
     }
 
 }
-.SubNav{
-    display: flex;
-    &__list{
-        background-color: #222222;
-        color:#ddd;
-        width: 50%;
-    }
+.hide {
+    display: none;
+    visibility: hidden;
+}
+.active {
+    border-bottom: 5px solid #777;
 }

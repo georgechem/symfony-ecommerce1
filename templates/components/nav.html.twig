@@ -1,19 +1,26 @@
-<nav class="Nav">
+<nav id="menu" class="Nav">
    <div class="Nav__page">
-       <ul class="Nav__list">
-           <li class="Nav__list__item">
-               <a id="home" href="" class="Nav__list__item--link">
+       <ul id="pageMenu" class="Nav__list">
+           <li id="home" class="Nav__list__item">
+               <a class="Nav__list__item--link">
                    home
                </a>
            </li>
-           {% for file in files %}
-               <li class="Nav__list__item">
-                   <a id="home" href="" class="Nav__list__item--link">
-                       {{ file }}
-                   </a>
-               </li>
-           {% endfor %}
        </ul>
    </div>
+    <div class="Nav__user">
+        <ul id="userMenu" class="Nav__list">
+            <li id="user" class="Nav__list__item">
+                <a class="Nav__list__item--link">
+                    user
+                </a>
+            </li>
+        </ul>
+    </div>
 </nav>
-
+<nav id="homeNav" class="hide">
+    Home
+</nav>
+<nav id="userNav" class="hide">
+    User
+</nav>
