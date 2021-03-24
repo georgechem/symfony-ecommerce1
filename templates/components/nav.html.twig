@@ -1,4 +1,4 @@
-
+{# Top Menu #}
 <nav id="menu" class="Nav">
    <div class="Nav__page">
        <ul id="pageMenu" class="Nav__list">
@@ -19,7 +19,16 @@
         </ul>
     </div>
 </nav>
+{# Shopping Cart #}
+<nav class="NavCart">
+    <ul class="NavCart__list">
+        <li class="NavCart__list__item">
+            <i class="NavCart__list__item--link fas fa-shopping-basket"></i>
+        </li>
+    </ul>
 
+</nav>
+{# Sub menu Left #}
 <nav id="homeNav" class="SubNavL hide">
    <ul class="SubNavL__list">
        <li class="SubNavL__list__item">
@@ -27,6 +36,7 @@
        </li>
    </ul>
 </nav>
+{# Sub menu Right #}
 <nav id="userNav" class="SubNavR hide">
     <ul class="SubNavR__list">
         {% if app.user == null %}

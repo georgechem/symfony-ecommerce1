@@ -5,6 +5,30 @@
     padding:0;
 }
 
+.NavCart{
+    width: 100px;
+    font-size: 2rem;
+    position: fixed;
+    top: 62px;
+    margin-left: 45%;
+    @media(max-width: 359px){
+        margin-left: 35%;
+    }
+    @media(min-width: 360px) and (max-width: 500px){
+        margin-left: 40%;
+    }
+    &__list{
+        text-align: center;
+        padding: 7px;
+        background-color: #222;
+        color: #ddd;
+        border-radius: 0 0 10px 10px;
+        &__item{
+            display: inline;
+        }
+    }
+}
+
 .Nav {
     position:fixed;
     background-color: #222;
