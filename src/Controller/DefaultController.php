@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Cart;
 use App\Entity\Product;
 use App\Service\FilesystemService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -32,10 +33,12 @@ class DefaultController extends AbstractController
         if(!$this->session->isStarted()){
             // do if session is not yet started
             $this->session->start();
-            $this->session->invalidate();
-            $product = new Product();
-            $product->setName($this->session->getId());
-            $this->session->set('shopping', $product);
+            //$this->session->invalidate();
+            $cart = new Cart();
+            $cart->setCreatedAt(new \DateTime());
+            $cart->setIsCompleted(false);
+            $cart->setUuid($this->session->getId());
+            $this->session->set('shopping', $cart);
 
         }else{
             $this->session->start();
