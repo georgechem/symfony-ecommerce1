@@ -7,13 +7,17 @@ use App\Service\FilesystemService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
 {
+    private $session;
+    private $files;
 
-    public function __construct(FilesystemService $filesystemService){
+    public function __construct(FilesystemService $filesystemService, SessionInterface $session){
 
+        $this->session = $session;
         $this->files = $filesystemService
             ->getFilesFromDirectory('/src/Entity');
 
@@ -24,6 +28,23 @@ class DefaultController extends AbstractController
      */
     public function index(): Response
     {
+
+        if(!$this->session->isStarted()){
+            // do if session is not yet started
+            $this->session->start();
+            $this->session->invalidate();
+            $product = new Product();
+            $product->setName($this->session->getId());
+            $this->session->set('shopping', $product);
+
+        }else{
+            $this->session->start();
+        }
+
+        //return new Response(print_r($this->session->get('shopping')));
+
+        //dd($test);
+
         $products = $this->getDoctrine()
             ->getRepository(Product::class)
             ->findAll();

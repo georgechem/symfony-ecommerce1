@@ -85,8 +85,10 @@
         </p>
         {#  <p class="Card__content">{{ product.description }}</p>#}
         <div class="Card__content__footer">
-            <input class="Card__content__footer--btn" type="submit" value="Add to Cart">
-            <input class="Card__content__footer--btn" type="submit" value="Details">
+            <form method="get">
+                <input class="Card__content__footer--btn" type="submit" value="Add to Cart">
+                <input class="Card__content__footer--btn" type="submit" value="Details">
+            </form>
         </div>
     </div>
 </div>
