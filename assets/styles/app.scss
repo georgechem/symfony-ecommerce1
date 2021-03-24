@@ -6,21 +6,25 @@
 }
 
 .Nav {
+    position:fixed;
     background-color: #222;
     color: #ddd;
-    display: flex;
-    justify-content: space-around;
+    width: 100%;
+    top: 0;
     border-bottom: 1px solid black;
     &__page{
+        border: 1px solid white;
+        display: inline;
         text-transform: capitalize;
     }
     &__user{
+        display: inline;
+        float: right;
         text-transform: capitalize;
     }
     &__list{
         list-style: none;
         &__item{
-            margin-top: 0px;
             padding: 5px;
             border-bottom: 5px solid #222;
             &--link{
@@ -35,7 +39,7 @@
 }
 
 .SubNavL {
-    float: left;
+    position:fixed;
     background-color: #222;
     border-radius: 0 0 10px 0;
     width: 50%;
@@ -53,7 +57,8 @@
     }
 }
 .SubNavR {
-    float: right;
+    right:0;
+    position:fixed;
     background-color: #222;
     border-radius: 0 0 0 10px;
     width: 50%;
