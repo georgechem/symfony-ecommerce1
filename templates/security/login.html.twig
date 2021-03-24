@@ -3,9 +3,9 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<form method="post">
+<form class="LoginForm" method="post">
     {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        <div class="LoginForm__error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
     {% if app.user %}
@@ -14,11 +14,10 @@
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputApiToken">Email</label>
-    <input type="text" value="{{ last_username }}" name="email" id="inputApiToken" class="form-control" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" required>
+    <label class="LoginForm__label" for="inputEmail">Email</label>
+    <input class="LoginForm__input" type="text" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+    <label class="LoginForm__label" for="inputPassword">Password</label>
+    <input class="LoginForm__input" type="password" name="password" id="inputPassword" class="form-control" required>
 
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
@@ -35,7 +34,7 @@
         </div>
     #}
 
-    <button class="btn btn-lg btn-primary" type="submit">
+    <button class="LoginForm__btn" type="submit" value="login">
         Sign in
     </button>
 </form>

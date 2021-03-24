@@ -1,0 +1,28 @@
+.LoginForm{
+  margin: 100px auto 50px auto;
+  padding: 10px;
+  max-width: 300px;
+  border: 1px solid black;
+  text-align: center;
+  &__error{
+
+  }
+  &__label{
+    margin: 5px;
+    text-align: center;
+    display: block;
+  }
+  &__input{
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+  }
+  &__btn{
+    font-size: 2rem;
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    width: 100%;
+  }
+
+}
