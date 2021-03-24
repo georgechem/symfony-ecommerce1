@@ -39,10 +39,11 @@
 }
 
 .SubNavL {
+    left:0;
     position:fixed;
     background-color: #222;
     border-radius: 0 0 10px 0;
-    width: 50%;
+    top:45px;
     padding: 15px 0;
     &__list{
         list-style: none;
@@ -61,7 +62,7 @@
     position:fixed;
     background-color: #222;
     border-radius: 0 0 0 10px;
-    width: 50%;
+    top:45px;
     padding: 15px 0;
     &__list{
         list-style: none;
