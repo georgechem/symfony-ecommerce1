@@ -29,19 +29,18 @@ class DefaultController extends AbstractController
      */
     public function index(): Response
     {
+        //$this->session->start();
 
-        if(!$this->session->isStarted()){
+        if(!$this->session->get('shopping')){
             // do if session is not yet started
             $this->session->start();
-            //$this->session->invalidate();
+            $this->session->invalidate();
             $cart = new Cart();
             $cart->setCreatedAt(new \DateTime());
             $cart->setIsCompleted(false);
             $cart->setUuid($this->session->getId());
             $this->session->set('shopping', $cart);
 
-        }else{
-            $this->session->start();
         }
 
         //return new Response(print_r($this->session->get('shopping')));

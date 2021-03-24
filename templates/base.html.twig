@@ -14,6 +14,12 @@
 
     </head>
     <body>
+        {# count products in cart and store value in variable #}
+        {% if app.session.get('shopping').productList is empty %}
+            {% set number = 0 %}
+        {% else %}
+            {% set number = app.session.get('shopping').productList|length %}
+        {% endif %}
         {# Navigation #}
         {% include 'components/nav.html.twig' %}
 
