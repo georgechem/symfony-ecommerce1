@@ -59,9 +59,18 @@ class CartController extends AbstractController
         if($session->get('shopping')){
             $cart = $session->get('shopping');
             $products = $cart->getProductList();
+            $products_amount = $cart->getProductAmount();
+            // check is that product already in cart if so update amount
+            $inCart = array_key_exists($id, $products_amount);
+            if($inCart){
+                $products_amount[$id]++;
+            }else{
+                $products_amount[$id] = 1;
+            }
+            $cart->setProductAmount($products_amount);
             // Add product to cart if stock > 0
             $inStock = $product->getInStock();
-            if($inStock > 0){
+            if($inStock > 0 && !$inCart){
                 $products[] = $product;
             }
             // Update and check stock in DB - do that when product is bought

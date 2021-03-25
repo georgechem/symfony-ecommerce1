@@ -6,11 +6,17 @@
 
         {% for product in cart.ProductList %}
         <div class="MainCart__item">
+            <input class="MainCart__item__check" type="checkbox" id="product{{ product.id }}"
+                   name="product{{ product.id }}" value="{{ product.id }}"
+            />
             <span class="MainCart__item__name">{{ product.name }} </span>
             <img class="MainCart__item__img" src="{{ prefix }}{{ product.img }}" alt="product_thumbnail"/>
+            <span class="MainCart__item__qty">Qty: {{ cart.ProductAmount[product.id] }}</span>
+            <span class="MainCart__item__price">{{ product.price }} EUR </span>
+            <span class="MainCart__item__sum">{{ product.price * cart.ProductAmount[product.id]}} EUR</span>
         </div>
         {% endfor %}
-
+        {#  Sum up #}
         {% else %}
         <p class="MainCart__empty">Shopping cart is Empty</p>
         {% endif %}
