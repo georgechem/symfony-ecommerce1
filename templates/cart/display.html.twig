@@ -4,7 +4,9 @@
     <main class="MainCart">
         {% if cart is not null and cart.ProductList is not null%}
 
+        {% for product in cart.ProductList %}
 
+            {% endfor %}
 
         {% else %}
         <p class="MainCart__empty">Shopping cart is Empty</p>
