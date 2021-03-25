@@ -34,7 +34,6 @@ class DefaultController extends AbstractController
         if(!$this->session->get('shopping')){
             // do if session is not yet started
             $this->session->start();
-            $this->session->invalidate();
             $cart = new Cart();
             $cart->setCreatedAt(new \DateTime());
             $cart->setIsCompleted(false);
@@ -43,9 +42,8 @@ class DefaultController extends AbstractController
 
         }
 
-        //return new Response(print_r($this->session->get('shopping')));
+        //$this->session->invalidate();
 
-        //dd($test);
 
         $products = $this->getDoctrine()
             ->getRepository(Product::class)
