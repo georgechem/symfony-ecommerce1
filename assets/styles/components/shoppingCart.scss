@@ -65,3 +65,21 @@
   }
 
 }
+.CartCheckout{
+  margin:10px;
+  display: flex;
+  flex-direction: row-reverse;
+  &__btn{
+    color: #333;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    text-decoration: none;
+    padding: 10px;
+    border: 1px solid #aaa;
+    background-color: #ddd;
+    &:hover{
+      background-color: #333;
+      color:#ddd;
+    }
+  }
+}

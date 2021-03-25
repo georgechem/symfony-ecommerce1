@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="19e0d8cf-ae14-49e1-8a18-7f66807187bd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/components/shoppingCart.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/components/shoppingCart.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cart/display.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cart/display.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,13 +153,6 @@
       <workItem from="1616431311500" duration="10201000" />
       <workItem from="1616483312492" duration="7726000" />
       <workItem from="1616661914030" duration="2661000" />
-    </task>
-    <task id="LOCAL-00012" summary="ok">
-      <created>1616435290667</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1616435290667</updated>
     </task>
     <task id="LOCAL-00013" summary="ok">
       <created>1616437937784</created>
@@ -496,7 +490,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616698375941</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="fix calling getProducts on null">
+      <created>1616705469627</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1616705469628</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

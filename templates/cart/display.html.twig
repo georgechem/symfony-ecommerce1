@@ -28,8 +28,10 @@
                 {# used own Twig function for getting total from cart #}
                 <div class="MainCart__item__total--amount">{{ total(cart) }}&nbsp;EUR</div>
             </div>
-
                 </form>
+                <div class="CartCheckout">
+                    <a class="CartCheckout__btn" href=""> Checkout</a>
+                </div>
 
             {% else %}
                 <p class="MainCart__empty">Shopping cart is Empty</p>
