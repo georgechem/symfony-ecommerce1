@@ -16,7 +16,12 @@
             <span class="MainCart__item__sum">{{ product.price * cart.ProductAmount[product.id]}} EUR</span>
         </div>
         {% endfor %}
+            <div class="MainCart__item__total">
+                <div class="MainCart__item__total--amount">{{ total(cart) }}&nbsp;EUR</div>
+            </div>
+
         {#  Sum up #}
+
         {% else %}
         <p class="MainCart__empty">Shopping cart is Empty</p>
         {% endif %}

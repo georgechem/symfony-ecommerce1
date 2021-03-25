@@ -19,6 +19,18 @@
     border-left:1px solid black;
     border-right:1px solid black;
     background-color: #eee;
+    &__total{
+      margin: 10px;
+      display: flex;
+      background-color: #444;
+      flex-direction: row-reverse;
+      &--amount{
+        color: #ddd;
+        font-size: 1.1rem;
+        font-weight: bolder;
+        margin:20px;
+      }
+    }
     &__check{
       cursor: pointer;
     }
@@ -27,7 +39,8 @@
       width: 80px;
     }
     &__img{
-      width:48px;
+      padding: 10px 5px;
+      width:64px;
     }
     &__price{
       width:80px;
