@@ -4,6 +4,7 @@
     <main class="MainCart">
         {% if cart is not null and cart.ProductList is not null%}
             {% if cart.ProductList|length != 0 %}
+                <form action="{{ path('cart_remove') }}" method="post">
         {% for product in cart.ProductList %}
         <div class="MainCart__item">
             <input class="MainCart__item__check" type="checkbox" id="product{{ product.id }}"
@@ -16,14 +17,25 @@
             <span class="MainCart__item__sum">{{ product.price * cart.ProductAmount[product.id]}} EUR</span>
         </div>
         {% endfor %}
+                    <div class="MainCart__item__remove">
+                        <label for="removeProducts">Remove selected</label>
+                        <input class="MainCart__item__check" type="checkbox" id="removeProducts"
+                               name="removeProducts"/>
+                        <input class="MainCart__item__remove--btn" type="submit" value="Remove"/>
+                    </div>
+
             <div class="MainCart__item__total">
+                {# used own Twig function for getting total from cart #}
                 <div class="MainCart__item__total--amount">{{ total(cart) }}&nbsp;EUR</div>
             </div>
 
-        {#  Sum up #}
+                </form>
+
             {% else %}
                 <p class="MainCart__empty">Shopping cart is Empty</p>
             {% endif %}
+            {% else %}
+                <p class="MainCart__empty">Shopping cart is Empty</p>
         {% endif %}
     </main>
 

@@ -19,11 +19,54 @@ class CartController extends AbstractController
 {
 
     /**
+     * @Route("/remove", name="cart_remove", methods={"POST"})
+     */
+    public function remove(Request $request, SessionInterface $session):Response
+    {
+        $params = $request->request->all() ?? null;
+        $removeProducts = $params['removeProducts'] ?? null;
+        if(!$params || !$removeProducts){
+            return $this->redirectToRoute('cart_display');
+        }
+        //dd($params);
+        if($removeProducts === 'on'){
+            $ids = [];
+            foreach($params as $key => $item){
+                if($item !== 'on'){
+                    $ids[] = $item;
+                }
+            }
+            if($ids){
+                $session->start();
+                $productList = [];
+                $cart = $session->get('shopping');
+                $productAmount = $cart->getProductAmount();
+                foreach($cart->getProductList() as $product)
+                {
+                    $id = $product->getId();
+                    if(in_array($id,$ids)){
+                        unset($productAmount[$id]);
+                        continue;
+                    }
+                    $productList[] = $product;
+                }
+                $cart->setProductAmount($productAmount);
+                $cart->setProductList($productList);
+
+            }
+
+        }
+
+
+        return $this->redirectToRoute('cart_display');
+    }
+    /**
      * @Route("/display", name="cart_display", methods={"GET"})
      */
     public function display(SessionInterface $session):Response
     {
         $session->start();
+        //dd($session->get('shopping'));
         $cart = null;
         if($session->get('shopping')){
             $cart = $session->get('shopping');
