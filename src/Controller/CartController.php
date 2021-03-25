@@ -19,10 +19,11 @@ class CartController extends AbstractController
 {
 
     /**
-     * @Route("/remove", name="cart_remove", methods={"POST"})
+     * @Route("/remove", name="cart_remove", methods={"POST", "GET"})
      */
     public function remove(Request $request, SessionInterface $session):Response
     {
+
         $params = $request->request->all() ?? null;
         $removeProducts = $params['removeProducts'] ?? null;
         if(!$params || !$removeProducts){
