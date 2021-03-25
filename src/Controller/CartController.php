@@ -24,10 +24,13 @@ class CartController extends AbstractController
     }
 
     /**
-     * @Route("/add", name="cart_add", methods="GET")
+     * @Route("/add/{id}", name="cart_add", methods="GET", requirements={"id"="\d+"})
      */
-    public function modify(SessionInterface $session):Response
+    public function modify(SessionInterface $session, int $id = 0):Response
     {
+        if($id === 0){
+            return new Response('Product you are looking for does not exist');
+        }
         $session->start();
 
         if($session->get('shopping')){
