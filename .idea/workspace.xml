@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19e0d8cf-ae14-49e1-8a18-7f66807187bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Twig/AppExtension.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/components/shoppingCart.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/components/shoppingCart.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/cart/display.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cart/display.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
