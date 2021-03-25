@@ -29,7 +29,11 @@ $mediaCart: 501px;
         color: #ddd;
         border-radius: 0 0 10px 10px;
         &__item{
+            cursor: pointer;
             display: inline;
+            &--anchor{
+                color:white;
+            }
             &--amount{
                 text-align: center;
                 padding: 0 2px;
