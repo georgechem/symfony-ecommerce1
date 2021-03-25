@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Cart;
+use App\Entity\Product;
 use App\Form\CartType;
 use App\Repository\CartRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -43,13 +44,30 @@ class CartController extends AbstractController
         if(!$id){
             return new Response('Product does not exist');
         }
+        // query product in Db by Id
+        $product = $this->getDoctrine()
+            ->getRepository(Product::class)
+            ->findOneBy([
+                'id'=>$id
+            ]);
+        if(!$product){
+            return new Response('Product does not exist');
+        }
 
         $session->start();
 
         if($session->get('shopping')){
             $cart = $session->get('shopping');
             $products = $cart->getProductList();
-            $products[] = 'test product'.$id;
+            // Add product to cart if stock > 0
+            $inStock = $product->getInStock();
+            if($inStock > 0){
+                $products[] = $product;
+            }
+            // Update and check stock in DB - do that when product is bought
+            // if stock updated now user block that stock - and holds in cart
+            // for hours/ days preventing others from buying.
+
             $cart->setProductList($products);
             $session->set('shopping', $cart);
             return $this->redirectToRoute('app_homepage');

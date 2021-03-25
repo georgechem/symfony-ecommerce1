@@ -5,8 +5,11 @@
         {% if cart is not null and cart.ProductList is not null%}
 
         {% for product in cart.ProductList %}
-
-            {% endfor %}
+        <div class="MainCart__item">
+            <span class="MainCart__item__name">{{ product.name }} </span>
+            <img class="MainCart__item__img" src="{{ prefix }}{{ product.img }}" alt="product_thumbnail"/>
+        </div>
+        {% endfor %}
 
         {% else %}
         <p class="MainCart__empty">Shopping cart is Empty</p>

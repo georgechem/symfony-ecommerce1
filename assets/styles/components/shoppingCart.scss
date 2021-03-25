@@ -9,4 +9,19 @@
     text-align: center;
     font-size: 1.2rem;
   }
+  &__item{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 10px;
+    border:1px solid black;
+    &__name{
+      font-size: 0.9rem;
+      width: 100px;
+    }
+    &__img{
+      width:48px;
+    }
+  }
+
 }
