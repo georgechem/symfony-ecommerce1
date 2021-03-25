@@ -85,8 +85,9 @@
         </p>
         {#  <p class="Card__content">{{ product.description }}</p>#}
         <div class="Card__content__footer">
-            <form method="get">
-                <input class="Card__content__footer--btn" type="submit" value="Add to Cart">
+            <form action="{{ path('cart_add') }}" method="get">
+                <input name="product"  type="hidden" value="{{ product.id }}">
+                <button class="Card__content__footer--btn">Add to Cart</button>
             </form>
 
             <a class="Card__content__footer--btn" href="">Details</a>

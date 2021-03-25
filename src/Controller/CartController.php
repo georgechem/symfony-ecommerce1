@@ -16,30 +16,43 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class CartController extends AbstractController
 {
-    private $session;
 
-    public function construct(SessionInterface $session)
+    /**
+     * @Route("/display", name="cart_display", methods={"GET"})
+     */
+    public function display(SessionInterface $session):Response
     {
-        $this->session = $session;
+        $session->start();
+        $cart = null;
+        if($session->get('shopping')){
+            $cart = $session->get('shopping');
+
+        }
+
+        return $this->render('cart/display.html.twig',[
+            'cart' => $cart
+        ]);
     }
 
     /**
-     * @Route("/add/{id}", name="cart_add", methods="GET", requirements={"id"="\d+"})
+     * @Route("/add", name="cart_add", methods="GET")
      */
-    public function modify(SessionInterface $session, int $id = 0):Response
+    public function modify(Request $request, SessionInterface $session, int $id = 0):Response
     {
-        if($id === 0){
-            return new Response('Product you are looking for does not exist');
+        $id = $request->query->getInt('product') ?? null;
+        if(!$id){
+            return new Response('Product does not exist');
         }
+
         $session->start();
 
         if($session->get('shopping')){
             $cart = $session->get('shopping');
             $products = $cart->getProductList();
-            $products[] = 'test product';
+            $products[] = 'test product'.$id;
             $cart->setProductList($products);
             $session->set('shopping', $cart);
-            return new Response(print_r($session->get('shopping')));
+            return $this->redirectToRoute('app_homepage');
 
         }
 

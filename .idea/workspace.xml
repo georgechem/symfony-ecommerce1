@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19e0d8cf-ae14-49e1-8a18-7f66807187bd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/styles/components/shoppingCart.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cart/display.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/components/card.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/components/card.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CartController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/components/card.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/card.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/nav.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,13 +157,6 @@
       <workItem from="1616431311500" duration="10201000" />
       <workItem from="1616483312492" duration="7726000" />
       <workItem from="1616661914030" duration="2661000" />
-    </task>
-    <task id="LOCAL-00005" summary="ok">
-      <created>1616431297979</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1616431297979</updated>
     </task>
     <task id="LOCAL-00006" summary="ok">
       <created>1616431328809</created>
@@ -497,7 +494,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616666009674</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="fix calling getProducts on null">
+      <created>1616666307038</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1616666307038</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
