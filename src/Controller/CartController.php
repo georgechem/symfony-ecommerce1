@@ -24,13 +24,13 @@ class CartController extends AbstractController
     }
 
     /**
-     * @Route("/modify", name="cart_modify", methods="GET")
+     * @Route("/add", name="cart_add", methods="GET")
      */
     public function modify(SessionInterface $session):Response
     {
         $session->start();
 
-        if($session->isStarted()){
+        if($session->get('shopping')){
             $cart = $session->get('shopping');
             $products = $cart->getProductList();
             $products[] = 'test product';
