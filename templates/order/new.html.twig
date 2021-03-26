@@ -27,6 +27,10 @@
         <div class="OrderPlaced__total">
             {{ total(order) }}&nbsp;EUR
         </div>
+        <div class="OrderPlaced__nav">
+            <a class="OrderPlaced__nav--btn" href="{{ path('cart_display') }}">Back to Cart</a>
+            <a class="OrderPlaced__nav--btn" href="">Checkout</a>
+        </div>
     {% endif %}
 </main>
 {% endblock %}
