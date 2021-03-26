@@ -40,8 +40,10 @@
             <input class="UserForm__box__item__input" type="text" id="phone"
                    value="{{ address ? address.phone : '' }}" name="phone"/>
         </div>
+        {% if address is null %}
         <div class="UserForm__box__item">
             <input class="UserForm__box__item__input--btn" type="submit" value="Save"/>
         </div>
+        {% endif %}
     </div>
 </form>
