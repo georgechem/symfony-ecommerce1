@@ -2,17 +2,17 @@
 
 namespace App\Controller;
 
-use App\Entity\Address;
 use App\Entity\Order;
+use App\Entity\User;
 use App\Form\OrderType;
 use App\Repository\OrderRepository;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * @Route("/order")
@@ -32,19 +32,14 @@ class OrderController extends AbstractController
     /**
      * @Route("/new", name="order_new", methods={"GET","POST"})
      */
-    public function new(Request $request, SessionInterface $session): Response
+    public function new(Request $request, SessionInterface $session, UserPasswordEncoderInterface $encoder): Response
     {
         $session->start();
         $cart = $session->get('shopping') ?? null;
         if(!$cart){
             return $this->redirectToRoute('app_homepage');
         }
-        $uuid = $session->getId();
-        //$isAddress = false;
-        $address = $this->getDoctrine()->getRepository(Address::class)
-            ->findOneBy([
-                'uuidSession'=>$uuid
-            ]);
+        $user = $this->getUser();
         if($request->isMethod('post')){
             // handling user form
             $isError = false;
@@ -57,50 +52,36 @@ class OrderController extends AbstractController
 
                 }
             }
-            // create user address
+            // create user with Address
             if(!$isError){
-                $expire = (int) $this->getParameter('expire');
-                // find is already address for that id and not expired
-                $address = $this->getDoctrine()->getRepository(Address::class)
+                // check is user already in DB
+                if(!$user){
+                    $user = $this->getDoctrine()->getRepository(User::class)
                     ->findOneBy([
-                        'uuidSession'=>$uuid
+                        'email'=>$data['email'],
                     ]);
-                $isAddressExpired = true;
-                if($address){
-                    $activeAddressExpireAt = (int) $address->getExpireAt()->format('U');
-                    //dd($activeAddressExpireAt, time());
-                    if(time() < $activeAddressExpireAt){
-                        $isAddressExpired = false;
-                    }
-
-                }
-                if($isAddressExpired && $address){
-                    $manager = $this->getDoctrine()->getManager();
-                    $manager->remove($address);
-                    $manager->flush();
                 }
 
-                if(!$address){
-                    $address = new Address();
-                    $address->setFirstName($data['firstName']);
-                    $address->setLastName($data['lastName']);
-                    $address->setStreetName($data['streetName']);
-                    $address->setHouseNumber($data['houseNumber']);
-                    $address->setPostCode($data['postCode']);
-                    $address->setCity($data['city']);
-                    $address->setCounty($data['county']);
-                    $address->setPhone($data['phone']);
-                    $address->setUuidSession($uuid);
-                    $address->setExpireAt(DateTime::createFromFormat('U', (time()+$expire)));
-                    $manager = $this->getDoctrine()->getManager();
-                    $manager->persist($address);
-                    $manager->flush();
-                }
+                if(!$user){
+                    $user = new User();
+                    $user->setEmail($data['email']);
+                    $user->setPassword($encoder->encodePassword($user,$data['password']));
 
-                //$isAddress = true;
+                }
+                $user->setFirstName($data['firstName']);
+                $user->setLastName($data['lastName']);
+                $user->setStreetName($data['streetName']);
+                $user->setHouseNumber($data['houseNumber']);
+                $user->setPostCode($data['postCode']);
+                $user->setCity($data['city']);
+                $user->setCounty($data['county']);
+                $user->setPhone($data['phone']);
+                $manager = $this->getDoctrine()->getManager();
+                $manager->persist($user);
+                $manager->flush();
+
                 $this->addFlash('success', 'Address saved successfully');
             }
-
 
 
         }
@@ -121,7 +102,7 @@ class OrderController extends AbstractController
 
         return $this->render('order/new.html.twig', [
             'order'=>$order,
-            'address'=>$address,
+
         ]);
     }
 

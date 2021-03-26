@@ -42,7 +42,7 @@
 
         <div class="OrderPlaced__nav">
             <a class="OrderPlaced__nav--btn" href="{{ path('cart_display') }}">Back to Cart</a>
-            {% if app.user is not null or address != null %}
+            {% if app.user is not null %}
 
             <a class="OrderPlaced__nav--btn" href="">Go to Payment</a>
 
