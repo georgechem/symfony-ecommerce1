@@ -40,7 +40,7 @@ class OrderController extends AbstractController
             return $this->redirectToRoute('app_homepage');
         }
         $uuid = $session->getId();
-        $isAddress = false;
+        //$isAddress = false;
         $address = $this->getDoctrine()->getRepository(Address::class)
             ->findOneBy([
                 'uuidSession'=>$uuid
@@ -97,7 +97,7 @@ class OrderController extends AbstractController
                     $manager->flush();
                 }
 
-                $isAddress = true;
+                //$isAddress = true;
                 $this->addFlash('success', 'Address saved successfully');
             }
 
@@ -121,7 +121,6 @@ class OrderController extends AbstractController
 
         return $this->render('order/new.html.twig', [
             'order'=>$order,
-            'isAddress'=>$isAddress,
             'address'=>$address,
         ]);
     }
