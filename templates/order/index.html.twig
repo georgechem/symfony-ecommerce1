@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Order index{% endblock %}
+
+{% block body %}
+    <h1>Order index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>ProductList</th>
+                <th>ProductAmount</th>
+                <th>UuidSession</th>
+                <th>UuidUserId</th>
+                <th>CreatedAt</th>
+                <th>ExpireAt</th>
+                <th>IsPaid</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.productList ? order.productList|join(', ') : '' }}</td>
+                <td>{{ order.productAmount ? order.productAmount|join(', ') : '' }}</td>
+                <td>{{ order.uuidSession }}</td>
+                <td>{{ order.uuidUserId }}</td>
+                <td>{{ order.createdAt ? order.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ order.expireAt ? order.expireAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ order.isPaid ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('order_show', {'id': order.id}) }}">show</a>
+                    <a href="{{ path('order_edit', {'id': order.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('order_new') }}">Create new</a>
+{% endblock %}

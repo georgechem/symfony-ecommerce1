@@ -1,5 +1,4 @@
 /index.php
-/webpack.config.js
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php

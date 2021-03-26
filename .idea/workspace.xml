@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19e0d8cf-ae14-49e1-8a18-7f66807187bd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/components/order.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/orders.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/styles/components/order.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cart/display.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cart/display.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="order" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -152,13 +158,6 @@
       <workItem from="1616483312492" duration="7726000" />
       <workItem from="1616661914030" duration="2661000" />
       <workItem from="1616744441916" duration="547000" />
-    </task>
-    <task id="LOCAL-00015" summary="ok">
-      <created>1616441572480</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1616441572480</updated>
     </task>
     <task id="LOCAL-00016" summary="ok">
       <created>1616443763079</created>
@@ -496,7 +495,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616745555910</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="ok">
+      <created>1616745694216</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1616745694216</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
