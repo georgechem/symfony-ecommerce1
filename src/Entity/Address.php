@@ -62,6 +62,11 @@ class Address
      */
     private $uuidSession;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $expireAt;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -171,6 +176,18 @@ class Address
     public function setUuidSession(string $uuidSession): self
     {
         $this->uuidSession = $uuidSession;
+
+        return $this;
+    }
+
+    public function getExpireAt(): ?\DateTimeInterface
+    {
+        return $this->expireAt;
+    }
+
+    public function setExpireAt(\DateTimeInterface $expireAt): self
+    {
+        $this->expireAt = $expireAt;
 
         return $this;
     }
