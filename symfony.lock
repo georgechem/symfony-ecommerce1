@@ -410,6 +410,9 @@
     "symfonycasts/verify-email-bundle": {
         "version": "v1.2.0"
     },
+    "tecnickcom/tcpdf": {
+        "version": "6.3.5"
+    },
     "twig/extra-bundle": {
         "version": "v3.3.0"
     },
