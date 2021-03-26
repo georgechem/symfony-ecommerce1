@@ -5,5 +5,34 @@
 .OrderPlaced{
   margin: 100px auto 50px auto;
   max-width: 1200px;
-  border: 1px solid black;
+  &__header{
+    display: inline;
+    text-align: center;
+    margin: 10px 5px;
+  }
+  &__item{
+    margin: 10px 5px;
+    padding: 5px;
+    background-color: #ddd;
+    font-size: 0.8rem;
+    border-bottom: 1px solid #888;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    &__name{
+      width: 100px;
+    }
+    &__qty{
+      margin-left: 15px;
+    }
+  }
+  &__total{
+    border-top: 3px double black;
+    padding: 10px;
+    text-align: right;
+    margin: 20px 5px;
+    background-color: #444;
+    color: #ddd;
+  }
+
 }

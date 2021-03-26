@@ -9,8 +9,25 @@
 
 {% block body %}
 <main class="OrderPlaced">
-{{ dump(order) }}
+    {% if order is not null %}
+        <h3 class="OrderPlaced__header">Order for</h3>
+        {% if app.user is not null %}
+            <span>{{ app.user.email }}</span>
+        {% else %}
+            <span>anonymous user</span>
+        {% endif %}
 
+        {% for item in order.productList %}
+            <div class="OrderPlaced__item">
+                <span class="OrderPlaced__item__name">&nbsp;{{ item.name }}</span>
+                <span class="OrderPlaced__item__qty">Qty:&nbsp;{{ order.productAmount[item.id] }}</span>
+                <span class="OrderPlaced__price">{{ item.price }}&nbsp;EUR</span>
+            </div>
+        {% endfor %}
+        <div class="OrderPlaced__total">
+            {{ total(order) }}&nbsp;EUR
+        </div>
+    {% endif %}
 </main>
 {% endblock %}
 
