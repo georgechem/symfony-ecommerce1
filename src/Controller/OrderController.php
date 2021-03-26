@@ -79,8 +79,10 @@ class OrderController extends AbstractController
                 $manager = $this->getDoctrine()->getManager();
                 $manager->persist($user);
                 $manager->flush();
+                if($this->getUser()){
+                    $this->addFlash('success', 'Address saved successfully');
+                }
 
-                $this->addFlash('success', 'Address saved successfully');
             }
 
 
