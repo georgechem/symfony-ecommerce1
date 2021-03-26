@@ -1,0 +1,18 @@
+.UserForm{
+  border: 1px solid black;
+  font-size: 0.8rem;
+  &__box{
+    margin:10px 5px;
+    display: flex;
+    &__item{
+      &__label{
+
+      }
+      &__input{
+        text-align: center;
+        padding: 5px;
+      }
+    }
+
+  }
+}

@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19e0d8cf-ae14-49e1-8a18-7f66807187bd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/styles/components/userForm.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cart/_user.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/components/shoppingCart.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/components/shoppingCart.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/order/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/order/new.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
