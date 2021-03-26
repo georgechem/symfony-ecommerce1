@@ -27,7 +27,7 @@
         <div class="OrderPlaced__total">
             {{ total(order) }}&nbsp;EUR
         </div>
-        {% if app.user is null %}
+
             {% for msg in  app.flashes('error') %}
                 <div class="FlashMsg">
                     <div class="FlashMsg--msg error">{{ msg }}</div>
@@ -39,7 +39,7 @@
                 </div>
             {% endfor %}
         {% include 'cart/_user.html.twig' %}
-            {% endif %}
+
         <div class="OrderPlaced__nav">
             <a class="OrderPlaced__nav--btn" href="{{ path('cart_display') }}">Back to Cart</a>
             {% if app.user is not null or address != null %}
