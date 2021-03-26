@@ -2,14 +2,19 @@
   border: 1px solid black;
   font-size: 0.8rem;
   &__box{
-    margin:10px 5px;
+    margin:5px;
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     &__item{
+      text-align: center;
+      margin: 10px;
       &__label{
-
+        margin: 5px;
       }
       &__input{
         text-align: center;
+        margin: 5px 0;
         padding: 5px;
       }
     }
