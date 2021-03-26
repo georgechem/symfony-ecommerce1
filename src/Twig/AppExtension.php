@@ -4,7 +4,6 @@
 namespace App\Twig;
 
 
-use App\Entity\Cart;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
@@ -17,7 +16,7 @@ class AppExtension extends AbstractExtension
         ];
     }
 
-    public function getTotal(Cart $cart)
+    public function getTotal(CartInterface $cart)
     {
         $ids = array_keys($cart->getProductAmount());
         $sum = 0.0;

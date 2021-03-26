@@ -3,13 +3,14 @@
 namespace App\Entity;
 
 use App\Repository\OrderRepository;
+use App\Twig\CartInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=OrderRepository::class)
  * @ORM\Table(name="`order`")
  */
-class Order
+class Order implements CartInterface
 {
     /**
      * @ORM\Id

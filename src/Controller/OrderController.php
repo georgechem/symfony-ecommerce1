@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Order;
 use App\Form\OrderType;
 use App\Repository\OrderRepository;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -38,10 +39,22 @@ class OrderController extends AbstractController
         }
 
         $order = new Order();
-        
+        $order->setProductList($cart->getProductList());
+        $order->setProductAmount($cart->getProductAmount());
+        $order->setUuidSession($session->getId());
+        if($user = $this->getUser()){
+            $order->setUuidUserId($user->getId());
+        }
+        $order->setCreatedAt(new \DateTime());
+        $metaData = $session->getMetadataBag();
+        $expire = $metaData->getCreated() + $metaData->getLifetime();
+        $order->setExpireAt(DateTime::createFromFormat('U', $expire));
+        $order->setIsPaid(false);
 
 
-        return $this->render('order/new.html.twig', []);
+        return $this->render('order/new.html.twig', [
+            'order'=>$order
+        ]);
     }
 
     /**
