@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Address;
 use App\Entity\Order;
 use App\Form\OrderType;
 use App\Repository\OrderRepository;
@@ -9,6 +10,7 @@ use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -37,6 +39,40 @@ class OrderController extends AbstractController
         if(!$cart){
             return $this->redirectToRoute('app_homepage');
         }
+        $isAddress = false;
+        if($request->isMethod('post')){
+            // handling user form
+            $isError = false;
+            foreach($request->request->all() as $key => $item)
+            {
+                $data[$key] = filter_var($item, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                if(!$item && !$isError){
+                    $this->addFlash('error', 'All fields are required');
+                    $isError = true;
+
+                }
+            }
+            // create user address
+            if(!$isError){
+                $address = new Address();
+                $address->setFirstName($data['firstName']);
+                $address->setLastName($data['lastName']);
+                $address->setStreetName($data['streetName']);
+                $address->setHouseNumber($data['houseNumber']);
+                $address->setPostCode($data['postCode']);
+                $address->setCity($data['city']);
+                $address->setCounty($data['county']);
+                $address->setPhone($data['phone']);
+                $address->setUuidSession($session->getId());
+                $manager = $this->getDoctrine()->getManager();
+                $manager->persist($address);
+                $manager->flush();
+                $isAddress = true;
+                $this->addFlash('success', 'Address saved successfully');
+            }
+
+
+        }
 
         $order = new Order();
         $order->setProductList($cart->getProductList());
@@ -53,7 +89,8 @@ class OrderController extends AbstractController
 
 
         return $this->render('order/new.html.twig', [
-            'order'=>$order
+            'order'=>$order,
+            'isAddress'=>$isAddress,
         ]);
     }
 
