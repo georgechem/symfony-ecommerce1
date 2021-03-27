@@ -42,6 +42,7 @@ class OrderController extends AbstractController
             return $this->redirectToRoute('app_homepage');
         }
         // which method used POST or GET
+        $em = $this->getDoctrine()->getManager();
         if($request->isMethod('post')){
             // method POST
             $isError = false;
@@ -55,9 +56,28 @@ class OrderController extends AbstractController
                 }
             }
             // check is User logged in or NOT
-            if($user){
+            if($user && !$isError){
                 //user LOGGED IN
-            }else{
+                // GET User from DB as it is logged
+                if($encoder->isPasswordValid($user, $data['password'])){
+                    // Password valid allow override data
+                    $user->setFirstName($data['firstName']);
+                    $user->setLastName($data['lastName']);
+                    $user->setStreetName($data['streetName']);
+                    $user->setHouseNumber($data['houseNumber']);
+                    $user->setPostCode($data['postCode']);
+                    $user->setCity($data['city']);
+                    $user->setCounty($data['county']);
+                    $user->setPhone($data['phone']);
+                    $em->persist($user);
+                    $em->flush();
+                    $this->addFlash('success', 'User data saved successfully');
+                }else{
+                    // Display message that Password is not valid
+                    $this->addFlash('error','Invalid Password');
+                }
+
+            }elseif(!$isError){
                 //user NOT LOGGED IN
             }
         }else{
@@ -93,14 +113,7 @@ class OrderController extends AbstractController
 
                 }
 
-                    $user->setFirstName($data['firstName']);
-                    $user->setLastName($data['lastName']);
-                    $user->setStreetName($data['streetName']);
-                    $user->setHouseNumber($data['houseNumber']);
-                    $user->setPostCode($data['postCode']);
-                    $user->setCity($data['city']);
-                    $user->setCounty($data['county']);
-                    $user->setPhone($data['phone']);
+
                     $manager = $this->getDoctrine()->getManager();
                     $manager->persist($user);
                     $manager->flush();
