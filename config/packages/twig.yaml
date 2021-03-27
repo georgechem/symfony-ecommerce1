@@ -1,4 +1,4 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
     globals:
-        prefix: '/ecommerce1/public'
+        prefix: ''
