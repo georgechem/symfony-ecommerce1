@@ -45,13 +45,11 @@
             <input class="UserForm__box__item__input--email" type="text" id="email"
                    value="{{ app.user.email ?? '' }}" name="email"/>
         </div>
-        {% if app.user is null%}
         <div class="UserForm__box__item">
             <label class="UserForm__box__item__label" for="password">Password: </label>
             <input class="UserForm__box__item__input" type="text" id="password"
                     name="password"/>
         </div>
-        {% endif %}
         <div class="UserForm__box__item">
             <input class="UserForm__box__item__input--btn" type="submit" value="Save"/>
         </div>

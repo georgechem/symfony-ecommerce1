@@ -35,15 +35,15 @@ class OrderController extends AbstractController
     public function new(Request $request, SessionInterface $session, UserPasswordEncoderInterface $encoder): Response
     {
         $session->start();
+        // check is shopping cart exist - if no Redirect
         $cart = $session->get('shopping') ?? null;
+        $user = $this->getUser();
         if(!$cart){
             return $this->redirectToRoute('app_homepage');
         }
-        $user = $this->getUser();
-
-
+        // which method used POST or GET
         if($request->isMethod('post')){
-            // handling user form
+            // method POST
             $isError = false;
             foreach($request->request->all() as $key => $item)
             {
@@ -54,6 +54,26 @@ class OrderController extends AbstractController
 
                 }
             }
+            // check is User logged in or NOT
+            if($user){
+                //user LOGGED IN
+            }else{
+                //user NOT LOGGED IN
+            }
+        }else{
+            // method GET
+            // check is User logged in or NOT
+            if($user){
+                //user LOGGED IN
+            }else{
+                //user NOT LOGGED IN
+            }
+        }
+        /*
+        $user = $this->getUser();
+        if($request->isMethod('post')){
+            // handling user form
+
             // create user with Address
             if(!$isError){
                 // check is user already in DB
@@ -63,23 +83,16 @@ class OrderController extends AbstractController
                         'email'=>$data['email'],
                     ]);
                 }
-                $isUser = [
-                    'isUserNew'=>false,
-                    'alreadyExists'=>$user ?? false,
-                    'passwordValid'=>false,
-                ];
-                // check password as email exists
-                if($user){
-                    $isUser['passwordValid'] = $encoder->isPasswordValid($user, $data['password']);
-                }
+
+
                 if(!$user){
                     $user = new User();
                     $user->setEmail($data['email']);
                     $user->setPassword($encoder->encodePassword($user,$data['password']));
-                    $isUser['isUserNew'] = true;
+
 
                 }
-                if($isUser['passwordValid'] && !$isUser['isUserNew']){
+
                     $user->setFirstName($data['firstName']);
                     $user->setLastName($data['lastName']);
                     $user->setStreetName($data['streetName']);
@@ -91,7 +104,7 @@ class OrderController extends AbstractController
                     $manager = $this->getDoctrine()->getManager();
                     $manager->persist($user);
                     $manager->flush();
-                }elseif($isUser['isUserNew']){
+
                     $user->setFirstName($data['firstName']);
                     $user->setLastName($data['lastName']);
                     $user->setStreetName($data['streetName']);
@@ -103,14 +116,9 @@ class OrderController extends AbstractController
                     $manager = $this->getDoctrine()->getManager();
                     $manager->persist($user);
                     $manager->flush();
-                }
 
 
-                if($isUser['isUserNew'] && !$isUser['alreadyExists']){
-                    return $this->redirectToRoute('app_login');
-                }elseif($isUser['alreadyExists']){
-                    return $this->redirectToRoute('app_login');
-                }
+
 
                 if($this->getUser()){
                     $this->addFlash('success', 'Address saved successfully');
@@ -120,7 +128,7 @@ class OrderController extends AbstractController
 
 
         }
-
+        */
 
         $order = new Order();
         $order->setProductList($cart->getProductList());
