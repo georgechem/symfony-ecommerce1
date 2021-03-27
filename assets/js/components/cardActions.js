@@ -11,7 +11,7 @@ setTimeout(function(){
     pageOffsetY = 0;
     localStorage.setItem('offsetY', 0);
 
-},2000);
+},1000);
 AddToCart.forEach((addToCartButton)=>{
    addToCartButton.addEventListener('click', function(e){
        //e.preventDefault();
