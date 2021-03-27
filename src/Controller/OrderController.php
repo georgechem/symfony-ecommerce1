@@ -111,23 +111,24 @@ class OrderController extends AbstractController
                 }
 
             }
-        }else{
-            // method GET
-            $order = new Order();
-            $order->setProductList($cart->getProductList());
-            $order->setProductAmount($cart->getProductAmount());
-            $order->setUuidSession($session->getId());
-            $order->setCreatedAt(new DateTime());
-            $metaData = $session->getMetadataBag();
-            $expire = $metaData->getCreated() + $metaData->getLifetime();
-            $order->setExpireAt(DateTime::createFromFormat('U', $expire));
-            $order->setIsPaid(false);
-            $order->setUuidSession($session->getId());
-            // check is User logged in or NOT
-            if($user){
-                //user LOGGED IN
-                $order->setUuidUserId($user->getId());
-            }
+        }
+        /**
+         * For Both methods GET and POST
+         */
+        $order = new Order();
+        $order->setProductList($cart->getProductList());
+        $order->setProductAmount($cart->getProductAmount());
+        $order->setUuidSession($session->getId());
+        $order->setCreatedAt(new DateTime());
+        $metaData = $session->getMetadataBag();
+        $expire = $metaData->getCreated() + $metaData->getLifetime();
+        $order->setExpireAt(DateTime::createFromFormat('U', $expire));
+        $order->setIsPaid(false);
+        $order->setUuidSession($session->getId());
+        // check is User logged in or NOT
+        if($user){
+            //user LOGGED IN
+            $order->setUuidUserId($user->getId());
         }
 
         return $this->render('order/new.html.twig', [
