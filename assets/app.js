@@ -11,6 +11,9 @@ import './styles/login.scss';
 import './styles/register.scss';
 import './styles/components/shoppingCart.scss';
 
+// import jQuery
+const $ = require('jquery');
+
 // start the Stimulus application
 import './bootstrap';
 
