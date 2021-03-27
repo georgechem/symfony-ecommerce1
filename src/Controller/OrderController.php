@@ -63,24 +63,55 @@ class OrderController extends AbstractController
                         'email'=>$data['email'],
                     ]);
                 }
-
+                $isUser = [
+                    'isUserNew'=>false,
+                    'alreadyExists'=>$user ?? false,
+                    'passwordValid'=>false,
+                ];
+                // check password as email exists
+                if($user){
+                    $isUser['passwordValid'] = $encoder->isPasswordValid($user, $data['password']);
+                }
                 if(!$user){
                     $user = new User();
                     $user->setEmail($data['email']);
                     $user->setPassword($encoder->encodePassword($user,$data['password']));
+                    $isUser['isUserNew'] = true;
 
                 }
-                $user->setFirstName($data['firstName']);
-                $user->setLastName($data['lastName']);
-                $user->setStreetName($data['streetName']);
-                $user->setHouseNumber($data['houseNumber']);
-                $user->setPostCode($data['postCode']);
-                $user->setCity($data['city']);
-                $user->setCounty($data['county']);
-                $user->setPhone($data['phone']);
-                $manager = $this->getDoctrine()->getManager();
-                $manager->persist($user);
-                $manager->flush();
+                if($isUser['passwordValid'] && !$isUser['isUserNew']){
+                    $user->setFirstName($data['firstName']);
+                    $user->setLastName($data['lastName']);
+                    $user->setStreetName($data['streetName']);
+                    $user->setHouseNumber($data['houseNumber']);
+                    $user->setPostCode($data['postCode']);
+                    $user->setCity($data['city']);
+                    $user->setCounty($data['county']);
+                    $user->setPhone($data['phone']);
+                    $manager = $this->getDoctrine()->getManager();
+                    $manager->persist($user);
+                    $manager->flush();
+                }elseif($isUser['isUserNew']){
+                    $user->setFirstName($data['firstName']);
+                    $user->setLastName($data['lastName']);
+                    $user->setStreetName($data['streetName']);
+                    $user->setHouseNumber($data['houseNumber']);
+                    $user->setPostCode($data['postCode']);
+                    $user->setCity($data['city']);
+                    $user->setCounty($data['county']);
+                    $user->setPhone($data['phone']);
+                    $manager = $this->getDoctrine()->getManager();
+                    $manager->persist($user);
+                    $manager->flush();
+                }
+
+
+                if($isUser['isUserNew'] && !$isUser['alreadyExists']){
+                    return $this->redirectToRoute('app_login');
+                }elseif($isUser['alreadyExists']){
+                    return $this->redirectToRoute('app_login');
+                }
+
                 if($this->getUser()){
                     $this->addFlash('success', 'Address saved successfully');
                 }
