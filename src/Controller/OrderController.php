@@ -40,6 +40,8 @@ class OrderController extends AbstractController
             return $this->redirectToRoute('app_homepage');
         }
         $user = $this->getUser();
+
+
         if($request->isMethod('post')){
             // handling user form
             $isError = false;
@@ -87,6 +89,7 @@ class OrderController extends AbstractController
 
 
         }
+
 
         $order = new Order();
         $order->setProductList($cart->getProductList());
