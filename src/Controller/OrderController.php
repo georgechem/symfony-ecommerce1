@@ -117,7 +117,7 @@ class OrderController extends AbstractController
             $order->setProductList($cart->getProductList());
             $order->setProductAmount($cart->getProductAmount());
             $order->setUuidSession($session->getId());
-            $order->setCreatedAt(new \DateTime());
+            $order->setCreatedAt(new DateTime());
             $metaData = $session->getMetadataBag();
             $expire = $metaData->getCreated() + $metaData->getLifetime();
             $order->setExpireAt(DateTime::createFromFormat('U', $expire));
