@@ -57,7 +57,7 @@ class OrderController extends AbstractController
             }
             // check is User logged in or NOT
             if($user && !$isError){
-                //user LOGGED IN
+                //user LOGGED IN - POST
                 // GET User from DB as it is logged
                 if($encoder->isPasswordValid($user, $data['password'])){
                     /**
@@ -82,7 +82,33 @@ class OrderController extends AbstractController
                 }
 
             }elseif(!$isError){
-                //user NOT LOGGED IN
+                //user NOT LOGGED IN - POST
+                $email = $em->getRepository(User::class)
+                    ->findOneBy([
+                        'email'=>$data['email']
+                    ]);
+                if($email){
+                    $this->addFlash('error', 'User with that email is already registered');
+                }else{
+                    $user = new User();
+                    $user->setEmail($data['email']);
+                    $user->setPassword($encoder->encodePassword($user,$data['password']));
+                    $user->setFirstName($data['firstName']);
+                    $user->setLastName($data['lastName']);
+                    $user->setStreetName($data['streetName']);
+                    $user->setHouseNumber($data['houseNumber']);
+                    $user->setPostCode($data['postCode']);
+                    $user->setCity($data['city']);
+                    $user->setCounty($data['county']);
+                    $user->setPhone($data['phone']);
+                    $em->persist($user);
+                    $em->flush();
+                    $this->addFlash('success','Registration successful - please Log In redirection after 4s');
+                    $urlRedirect = $this->generateUrl('app_login');
+                    header("Refresh: 4; {$urlRedirect}");
+
+                }
+
             }
         }else{
             // method GET
@@ -110,9 +136,7 @@ class OrderController extends AbstractController
 
 
                 if(!$user){
-                    $user = new User();
-                    $user->setEmail($data['email']);
-                    $user->setPassword($encoder->encodePassword($user,$data['password']));
+
 
 
                 }
@@ -122,14 +146,7 @@ class OrderController extends AbstractController
                     $manager->persist($user);
                     $manager->flush();
 
-                    $user->setFirstName($data['firstName']);
-                    $user->setLastName($data['lastName']);
-                    $user->setStreetName($data['streetName']);
-                    $user->setHouseNumber($data['houseNumber']);
-                    $user->setPostCode($data['postCode']);
-                    $user->setCity($data['city']);
-                    $user->setCounty($data['county']);
-                    $user->setPhone($data['phone']);
+
                     $manager = $this->getDoctrine()->getManager();
                     $manager->persist($user);
                     $manager->flush();
