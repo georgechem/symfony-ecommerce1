@@ -13,8 +13,6 @@ class PayPalController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('pay_pal/index.html.twig', [
-            'controller_name' => 'PayPalController',
-        ]);
+        return $this->render('pay_pal/index.html.twig', []);
     }
 }
