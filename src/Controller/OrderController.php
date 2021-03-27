@@ -60,6 +60,10 @@ class OrderController extends AbstractController
                 //user LOGGED IN
                 // GET User from DB as it is logged
                 if($encoder->isPasswordValid($user, $data['password'])){
+                    /**
+                     * Email & Password shouldn't be overridden here
+                     * for Password & Email Separate logic - as it is good Practice
+                     */
                     // Password valid allow override data
                     $user->setFirstName($data['firstName']);
                     $user->setLastName($data['lastName']);
