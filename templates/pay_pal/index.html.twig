@@ -4,8 +4,9 @@
 
 {% block body %}
 <main class="PayPal">
-
-
+{% for object in links %}
+    <p><a href="{{ object.href }}">{{ object.rel}} </a></p>
+    {% endfor %}
 
 </main>
 {% endblock %}
